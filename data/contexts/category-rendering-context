@@ -1,0 +1,8 @@
+{
+  "rendererKey": "templates/pcp.html",
+  "dataKeyMatchPattern": "category:.*",
+  "dataTypeMatchPattern": null,
+  "outputKeyTemplate": "/categories/{{slug}}.html",
+  "outputTypeTemplate": "page/category",
+  "outputFormat": "PAGE"
+}
