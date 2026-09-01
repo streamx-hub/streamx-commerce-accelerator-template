@@ -1,124 +1,108 @@
-# StreamX Commerce Accelerator
+# PureSight Demo
 
-This repository provides a **Commerce Accelerator built on StreamX**, designed to quickly deliver a fully functional e-commerce frontend powered by a **microservices-based mesh architecture**.
+This repository provides the **PureSight Demo**, a showcase e-commerce experience built on **StreamX**, designed to demonstrate the platform’s capabilities in real-world scenarios.
 
-The accelerator enables you to **launch an e-commerce experience with minimal or no custom development**, while still allowing full flexibility through integration with your own data sources (e.g. PIM systems).
+Unlike the base accelerator, this project comes with **PureSight branding** and **pre-integrated data sources**, enabling a richer, production-like demonstration environment out of the box.
 
 ---
 
 # Overview
 
-The StreamX Commerce Accelerator delivers:
+PureSight Demo demonstrates how StreamX enables:
 
-* A ready-to-use **e-commerce frontend architecture**
-* A **microservices mesh**
-* Built-in support for:
+* **Multi-source content orchestration**
+* **Dynamic data aggregation from multiple systems**
+* **Composable, microservices-based frontend architecture**
 
-  * **Product Detail Pages (PDP)**
-  * **Product Category Pages (PCP)**
-  * **Search and filtering (faceted search)**
+The project is preconfigured to work with:
 
-The system is designed to work with **external data sources**, allowing you to plug in your own **Product Information Management (PIM)** system.
+* **AEM (Adobe Experience Manager)**
+* **EDS (Edge Delivery Services)**
 
----
-
-# Data Ingestion & Custom Sources
-
-## Ingesting Data Using StreamX CLI
-
-To quickly load sample or prepared data into the system, you can use the StreamX CLI.
-
-### 1. Install StreamX CLI
-
-```bash
-brew install streamx-com/tap/streamx
-```
-
-### 2. Configure ingestion endpoint
-
-1. Go to **Gateways** in the StreamX Console
-2. Copy the **REST Ingestion URL**
-3. Set it in CLI:
-
-```bash
-streamx settings set streamx.ingestion.url <INGESTION_URL>
-```
-
-### 3. Configure authentication
-
-1. Go to **Sources** tab in the StreamX Console
-2. Copy the **CLI token** (recommended due to wide permissions)
-3. Set it in CLI:
-
-```bash
-streamx settings set streamx.ingestion.auth-token <TOKEN>
-```
-
-### 4. Publish data
-
-```bash
-sh scripts/publish-all.sh
-```
-
-### 5. Open your storefront
-
-1. Go to **Gateways** in the StreamX Console
-2. Open the URL for:
-
-```
-web-server-sink
-```
+This allows you to explore how content and commerce data can be unified into a single experience.
 
 ---
 
-## Connecting Your Own Data Source
+# Key Capabilities
 
-To integrate your own data (e.g. external PIM):
+## Multi-Source Data Aggregation
 
-* Use one of the available **StreamX connectors**, or
-* Build a **custom connector**
+PureSight Demo highlights StreamX’s ability to:
 
-### How integration works
+* Ingest data from **multiple independent sources**
+* Aggregate and unify content into a single model
+* Resolve conflicts and combine data dynamically
 
-Integration with external systems follows the same pattern as CLI ingestion:
+---
 
-* You need to provide:
+## Dynamic Commerce & Content Pages
 
-  * **Ingestion URL**
-  * **Authentication token**
+The demo provides out-of-the-box support for:
 
-These should be configured inside your connector instead of the CLI.
+* **Product Detail Pages (PDP)** — dynamically generated from aggregated data
+* **Product Category Pages (PCP)** — powered by multiple content sources
+* **Product Listings** — enriched with external data
+* **Static / CMS pages** — delivered from systems like AEM
 
-Your connector is responsible for:
+All pages are generated dynamically based on ingested and merged data.
 
-* Fetching data from your external system
-* Transforming it into StreamX-compatible events
-* Sending it to the ingestion endpoint
+---
+
+## Search & Discovery
+
+Built-in search capabilities include:
+
+* Indexing across **multiple data sources**
+* Full-text search
+* **Faceted filtering** for product exploration
+* Unified search experience across content and commerce
+
+---
+
+## Dynamic Sitemap Generation
+
+The platform automatically generates:
+
+* **Sitemaps aggregated from multiple sources**
+* URLs for products, categories, and content pages
+* A unified structure regardless of origin system
 
 ---
 
 # Architecture Overview
 
 ```
-PIM (emulate or external one)
-     │
-     │ (Cloud Events)
-     ▼
-StreamX Ingestion
-     │
-     ├── Product & Content Storage
-     ├── Search Index
-     └── Delivery Services
-             │
-             ▼
-        E-commerce Frontend
+AEM / EDS / Other Sources
+          │
+          │ (Cloud Events)
+          ▼
+     StreamX Ingestion
+          │
+          ├── Data Aggregation Layer
+          ├── Unified Storage
+          ├── Search Index
+          └── Delivery Services
+                  │
+                  ▼
+          PureSight Frontend
 ```
 
 ---
 
-# Additional docs
-Checkout docs folder for more information
+# Purpose
+
+This project serves as a **demonstration of StreamX platform capabilities**, focusing on:
+
+* Multi-source integration
+* Data aggregation and composition
+* Dynamic content generation
+* Unified search and discovery
+* Scalable, composable architecture
+
+---
 
 # Result
 
-You can launch a fully functional e-commerce site **in a very short time**, with the flexibility to extend and customize as needed.
+With PureSight Demo, you can quickly explore how StreamX enables building **modern, composable digital experiences** powered by multiple systems — without heavy custom integration work.
+
+It is designed to **demonstrate possibilities**, accelerate understanding, and serve as a foundation for further customization.
