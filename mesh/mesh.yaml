@@ -6,6 +6,7 @@ default:
 descriptors:
   relay:
     type: processing
+    serviceUnits: 0.25
     containers:
       service:
         incoming:
@@ -15,6 +16,7 @@ descriptors:
 
   optimized-images-generator:
     type: processing
+    serviceUnits: 1.0
     containers:
       processor:
         image: ghcr.io/streamx-com/streamx-blueprints/optimized-images-generator:3.0.19-native
@@ -25,6 +27,7 @@ descriptors:
 
   local-references-rewriter:
     type: processing
+    serviceUnits: 0.25
     volumes:
       rocksdb:
         size: 5Gi
@@ -44,6 +47,7 @@ descriptors:
 
   json-aggregator:
     type: processing
+    serviceUnits: 0.5
     volumes:
       rocksdb:
         size: 5Gi
@@ -68,6 +72,7 @@ descriptors:
 
   event-converter:
     type: processing
+    serviceUnits: 0.25
     containers:
       processor:
         image: ghcr.io/streamx-com/streamx-blueprints/event-converter:3.0.19-native
@@ -78,6 +83,7 @@ descriptors:
 
   rendering-engine:
     type: processing
+    serviceUnits: 1.0
     volumes:
       rocksdb:
         size: 5Gi
@@ -109,6 +115,7 @@ descriptors:
 
   composition-engine:
     type: processing
+    serviceUnits: 1.0
     volumes:
       rocksdb:
         size: 5Gi
@@ -135,6 +142,7 @@ descriptors:
 
   data-collector:
     type: processing
+    serviceUnits: 0.5
     volumes:
       rocksdb:
         size: 5Gi
@@ -155,6 +163,7 @@ descriptors:
 
   sitemap-generator:
     type: processing
+    serviceUnits: 1.0
     volumes:
       rocksdb:
         size: 5Gi
@@ -174,6 +183,7 @@ descriptors:
 
   indexable-resources-producer:
     type: processing
+    serviceUnits: 0.5
     containers:
       processor:
         image: ghcr.io/streamx-com/streamx-blueprints/indexable-resources-producer:3.0.19-native
@@ -186,6 +196,7 @@ descriptors:
 
   opensearch-sink:
     type: edge
+    serviceUnits: 4.0
     volumes:
       opensearch-data:
         size: 10Gi
@@ -222,6 +233,7 @@ descriptors:
 
   web-server-sink:
     type: edge
+    serviceUnits: 1.0
     volumes:
       repository-volume:
         size: 10Gi
