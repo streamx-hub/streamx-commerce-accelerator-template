@@ -26,5 +26,10 @@ global:
 clusters:
   eu-west-par-processing:
     enabled: true
+    overlay: {}
   eu-west-par-edge:
     enabled: true
+    overlay: {}
+  us-west-lax-edge:
+    enabled: true
+    overlay: {}
